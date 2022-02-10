@@ -1,0 +1,22 @@
+<div class="bet-slip">
+  <div class="selected-balls">
+    <div class="balls-row">
+      <button *ngFor="let ball of selectedBalls" mat-mini-fab class="clear-btn" [style.backgroundColor]="ball.color">{{ball.number}}</button>
+      <button *ngFor="let unselectedBall of getUnselectedBalls()" mat-mini-fab class="clear-btn" disabled></button>
+    </div>
+    <form class="bet-form" *ngIf="selectedBalls.length > 0" (ngSubmit)="calculateTotalBetValue()">
+      <mat-form-field>
+        <mat-label>Bet</mat-label>
+        <span matPrefix>{{selectedBalls.length}}x&nbsp;</span>
+        <input matInput name="betValue" type="number" [(ngModel)]="betValue">
+        <button mat-raised-button matSuffix color="primary" type="submit">Ok</button>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="bet-total">
+    <p>Total: {{totalBetValue}}</p>
+  </div>
+  <button class="bet-button" mat-raised-button matSuffix color="primary" type="submit">Place bet</button>
+</div>
+
+

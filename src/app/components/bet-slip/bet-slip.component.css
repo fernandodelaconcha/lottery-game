@@ -1,0 +1,28 @@
+:host{
+  margin: auto;
+  flex: 2;
+}
+
+.bet-slip{
+  margin: 1em;
+}
+
+.selected-balls{
+  background-color: white;
+  width: 100%;
+  border-radius: 5px;
+  min-height: 400px;
+  text-align: center;
+  display: inline-grid;
+}
+
+.balls-row{
+  margin: auto;
+}
+
+.bet-button, .bet-total{
+  width: 100%;
+}
+.bet-total{
+  text-align: center;
+}

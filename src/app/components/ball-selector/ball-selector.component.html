@@ -1,0 +1,10 @@
+<div class="ball-selector">
+  <h2>Numbers</h2>
+  <div class="balls-row">
+    <button *ngFor="let ball of balls" mat-fab class="clear-btn" [style.backgroundColor]="ball.color">{{ball.number}}</button>
+  </div>
+  <div class="btn-row">
+    <button mat-button class="clear-btn" color="primary">Clear selection</button>
+  </div>
+</div>
+

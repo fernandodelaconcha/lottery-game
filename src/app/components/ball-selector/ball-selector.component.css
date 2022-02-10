@@ -1,0 +1,27 @@
+:host{
+  margin: auto;
+  background-color: white;
+  min-height: 400px;
+  border-radius: 5px;
+  flex: 2;
+}
+
+.ball-selector{
+  margin:1em;
+}
+
+.balls-row{
+  margin: 2em;
+  text-align: center;
+  display: inline-flex;
+  gap: 2em;
+}
+
+.btn-row{
+  width: 100%;
+}
+
+.clear-btn{
+  margin: 0 auto;
+  display: block;
+}
