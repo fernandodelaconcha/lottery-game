@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ball } from 'src/app/interfaces/ball';
 
 @Component({
@@ -11,11 +11,20 @@ export class BetSlipComponent implements OnInit {
   constructor() { }
 
   @Input()
-  selectedBalls: Ball[] = []
+  selectedBalls: Ball[] = [];
+
+  @Input()
+  balance!: number;
+
+  @Output()
+  clickBall = new EventEmitter<Ball>();
+
+  @Output()
+  placeBet = new EventEmitter<number>();
 
   betValue!: number;
 
-  totalBetValue!: number;
+  totalBetValue: number = 0;
 
   ngOnInit(): void {
   }
@@ -26,6 +35,14 @@ export class BetSlipComponent implements OnInit {
 
   calculateTotalBetValue(){
     this.totalBetValue = this.betValue * this.selectedBalls.length;
+  }
+
+  onClickBall(ball: Ball){
+    this.clickBall.emit(ball);
+  }
+
+  onClickPlaceBet(){
+    this.placeBet.emit(this.totalBetValue);
   }
 
 }

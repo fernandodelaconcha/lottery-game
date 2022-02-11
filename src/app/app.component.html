@@ -1,2 +1,3 @@
-<app-ball-selector></app-ball-selector>
-<app-bet-slip [selectedBalls]="selectedBalls"></app-bet-slip>
+<app-ball-selector [balls]="totalBalls" [winnerBall]="winnerBall" [resultMsg]="resultMsg" (clickBall)="selectBall($event)"  (clickClear)="clearSelection()"></app-ball-selector>
+<app-bet-slip [selectedBalls]="selectedBalls" [balance]="balance" (clickBall)="removeSelectedBall($event)" (placeBet)="placeBet($event)"></app-bet-slip>
+

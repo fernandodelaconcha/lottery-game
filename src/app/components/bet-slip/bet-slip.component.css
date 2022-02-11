@@ -18,6 +18,8 @@
 
 .balls-row{
   margin: auto;
+  gap: .5em;
+  display: flex;
 }
 
 .bet-button, .bet-total{

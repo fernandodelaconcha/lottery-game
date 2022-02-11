@@ -25,3 +25,13 @@
   margin: 0 auto;
   display: block;
 }
+
+.result-display{
+  margin: auto;
+  text-align: center;
+
+}
+
+.result-display h2{
+  margin-top: 20px;
+}

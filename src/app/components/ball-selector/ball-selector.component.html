@@ -1,10 +1,20 @@
 <div class="ball-selector">
-  <h2>Numbers</h2>
-  <div class="balls-row">
-    <button *ngFor="let ball of balls" mat-fab class="clear-btn" [style.backgroundColor]="ball.color">{{ball.number}}</button>
+
+  <div *ngIf="!winnerBall">
+    <h2>Numbers</h2>
+    <div class="balls-row">
+      <button *ngFor="let ball of balls" mat-fab class="clear-btn" [style.backgroundColor]="ball.color" (click)="onClickBall(ball)">{{ball.number}}</button>
+    </div>
   </div>
+
+  <div *ngIf="winnerBall" class="result-display">
+    <h2>Result</h2>
+    <button mat-fab class="clear-btn" [style.backgroundColor]="winnerBall.color" (click)="onClickBall(winnerBall)">{{winnerBall.number}}</button>
+    <h2 [style.color]="resultMsg.color" >{{resultMsg.text}}</h2>
+  </div>
+
   <div class="btn-row">
-    <button mat-button class="clear-btn" color="primary">Clear selection</button>
+    <button mat-button class="clear-btn" color="primary" (click)="onClickClear()">Clear selection</button>
   </div>
 </div>
 

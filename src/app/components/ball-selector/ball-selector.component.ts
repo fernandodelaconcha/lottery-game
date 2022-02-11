@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ball } from 'src/app/interfaces/ball';
+import { ResultMessage } from 'src/app/interfaces/result-message';
 
 @Component({
   selector: 'app-ball-selector',
@@ -8,48 +9,20 @@ import { Ball } from 'src/app/interfaces/ball';
 })
 export class BallSelectorComponent implements OnInit {
 
-  balls: Ball[] = [
-    {
-      number: 1,
-      color: "#FF0000"
-    },
-    {
-      number: 2,
-      color: "#90EE90"
-    },
-    {
-      number: 3,
-      color: "#008000"
-    },
-    {
-      number: 4,
-      color: "#FF69B4"
-    },
-    {
-      number: 5,
-      color: "#DAA520"
-    },
-    {
-      number: 6,
-      color: "#FFF000"
-    },
-    {
-      number: 7,
-      color: "#800000"
-    },
-    {
-      number: 8,
-      color: "#4169E1"
-    },
-    {
-      number: 9,
-      color: "#D2691E"
-    },
-    {
-      number: 10,
-      color: "#FF00FF"
-    }
-  ]
+  @Output()
+  clickBall = new EventEmitter<Ball>();
+
+  @Output()
+  clickClear = new EventEmitter<void>();
+
+  @Input()
+  balls!: Ball[];
+
+  @Input()
+  winnerBall: Ball | undefined;
+
+  @Input()
+  resultMsg!: ResultMessage;
 
   constructor() { }
 
@@ -57,4 +30,11 @@ export class BallSelectorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClickBall(ball: Ball){
+    this.clickBall.emit(ball);
+  }
+
+  onClickClear(){
+    this.clickClear.emit();
+  }
 }
