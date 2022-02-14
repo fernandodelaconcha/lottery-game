@@ -3,13 +3,13 @@
   <div *ngIf="!winnerBall">
     <h2>Numbers</h2>
     <div class="balls-row">
-      <button *ngFor="let ball of balls" mat-fab class="clear-btn" [style.backgroundColor]="ball.color" (click)="onClickBall(ball)">{{ball.number}}</button>
+      <button *ngFor="let ball of balls" class="ball" mat-fab [style.backgroundColor]="ball.color" (click)="onClickBall(ball)">{{ball.number}}</button>
     </div>
   </div>
 
   <div *ngIf="winnerBall" class="result-display">
     <h2>Result</h2>
-    <button mat-fab class="clear-btn" [style.backgroundColor]="winnerBall.color" (click)="onClickBall(winnerBall)">{{winnerBall.number}}</button>
+    <button mat-fab class="ball" [style.backgroundColor]="winnerBall.color" (click)="onClickBall(winnerBall)">{{winnerBall.number}}</button>
     <h2 [style.color]="resultMsg.color" >{{resultMsg.text}}</h2>
   </div>
 
