@@ -34,6 +34,7 @@ export class BetSlipComponent implements OnInit {
   }
 
   calculateTotalBetValue(){
+    if (this.betValue)
     this.totalBetValue = this.betValue * this.selectedBalls.length;
   }
 
